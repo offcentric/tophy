@@ -1,0 +1,60 @@
+<content>
+	<section name="admin">
+		<page name="gallery_name"><![CDATA[
+			This is the gallery name help 
+		]]></page>
+		<page name="admin_email"><![CDATA[
+			This is the admin email help 
+		]]></page>
+		<page name="email_subject"><![CDATA[
+			This is the email subject help 
+		]]></page>
+		<page name="footer_content"><![CDATA[
+			This is the footer content help 
+		]]></page>
+		<page name="main_logo"><![CDATA[
+			This is the main logo help 
+		]]></page>
+		<page name="theme"><![CDATA[
+			This is the theme help 
+		]]></page>
+		<page name="page_layout"><![CDATA[
+			This is the page layout help 
+		]]></page>
+		<page name="startpage"><![CDATA[
+			This is the startpage help 
+		]]></page>
+		<page name="diplay_mode"><![CDATA[
+			This is the diplay mode help 
+		]]></page>
+		<page name="thumb_dimensions"><![CDATA[
+			This is the thumbnail dimensions help 
+		]]></page>
+		<page name="strip_dimensions"><![CDATA[
+			This is the stripl dimensions help 
+		]]></page>
+		<page name="thickbox"><![CDATA[
+			This is the thickbox help 
+		]]></page>
+		<page name="slideshow"><![CDATA[
+			This is the slideshow help 
+		]]></page>
+		<page name="control_panel"><![CDATA[
+			This is the control panel help 
+		]]></page>
+		<page name="exif"><![CDATA[
+			This is the EXIF help 
+		]]></page>
+		<page name="book_listing"><![CDATA[
+			This is the book listing help 
+		]]></page>
+		<page name="thumb_labels"><![CDATA[
+			This is the thumbnail labels help 
+		]]></page>
+	</section>
+	<section name="general">
+		<page name="control_panel"><![CDATA[
+			This is the control panel help for users
+		]]></page>
+	</section>
+</content>

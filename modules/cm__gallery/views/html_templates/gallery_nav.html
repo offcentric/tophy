@@ -1,0 +1,20 @@
+<div id="nav_container">
+{{gallery_dropdown_menu_start}}
+	<h3 class="nav_header"><a href="#">{{dropdown_arrow}}<span>{{header}}</span></a></h3>
+	<ul id="nav" class="clearfix dropdown">
+	{{item_start}}
+		{{item_default_start}}
+		<li class="level_0"><a href="{{link}}" title="{{title}}"><span>
+		{{item_default_end}}
+		{{item_active_start}}
+		<li class="level_0 item_on"><a href="{{link}}" title="{{title}}"><span>
+		{{item_active_end}}
+		
+	{{item_end}}
+	</ul>
+{{gallery_dropdown_menu_end}}
+
+{{gallery__menu_start}}
+{{gallery__menu_end}}
+</div>
+<img class=\"rollover\" src=\"" . $nav_image . $rolloverstate . "." . $_SESSION['cm__gallery']['navigation_image_format'] . "?m=" . $_SESSION['module'] . "&t=" . $_SESSION['theme'] . "\" alt=\"" . $title . "\" />

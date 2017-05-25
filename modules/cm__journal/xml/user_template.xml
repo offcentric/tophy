@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<users>
+	<user id="" admin="false">
+		<name></name>
+		<pass></pass>
+		<salt></salt>
+		<date_joined></date_joined>
+		<active></active>
+		<email></email>
+	</user>
+</users>

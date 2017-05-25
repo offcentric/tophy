@@ -1,0 +1,83 @@
+{{thumbnails_start}}
+	<div class="pagecontainer clearfix">
+{{intro}}
+		<div class="clearfix">
+			{{paging_previous}}
+			{{paging_next}}
+		</div>
+		<div class="bookpage clearfix display_thumbnails">
+			<div class="inner clearfix">
+	{{item_start}}
+				<div class="item clearfix">
+		{{thickbox_on_start}}
+					<a class="thumbnail thickbox clearfix" id="{{count}}" href="{{image_link}}" rel="{{book}}" title="{{title}}"><img src="{{thumbnail}}" alt="{{title}}" /></a>
+		{{thickbox_on_end}}
+		{{thickbox_off_start}}
+					<a href="{{photo_page_link}}" title="{{title}}"><img src="{{thumbnail}}" alt="{{title}}" /></a>
+		{{thickbox_off_end}}
+		{{exif_display_start}}
+					<div class="exif_info clearfix" id="exif_container_{{count}}">{{exif_details}}</div>
+		{{exif_display_end}}
+				</div>
+	{{item_end}}
+			</div>
+		</div>
+		<div class="clearfix">
+			{{paging_previous}}
+			{{paging_next}}
+		</div>
+	</div>
+{{thumbnails_end}}
+
+{{strip_start}}
+	<div class="pagecontainer clearfix">
+	{{intro}}
+	{{paging_previous}}
+		<div class="bookpage clearfix display_strip">
+			<div class="inner clearfix">
+	{{item_start}}
+				<img src="{{image}}" title="{{title}}" alt="{{title}}" />
+	{{item_end}}
+			</div>
+		</div>
+	{{paging_next}}
+	</div>
+{{strip_end}}
+
+{{full_start}}
+	<div class="pagecontainer clearfix">
+	{{intro}}
+	{{paging_previous}}
+		<div class="bookpage clearfix display_full">
+			<div class="inner clearfix">
+	{{item_start}}
+				<img src="{{image}}" title="{{title}}" alt="{{title}}" />
+	{{item_end}}
+			</div>
+		</div>
+	{{paging_next}}
+	</div>
+{{full_end}}
+
+{{paging_start}}
+	{{paging_previous_start}}
+		{{image_link_start}}
+			<div class="previous"><a href="{{link}}">
+				<img class="rollover" src="{{image}}" alt="previous" />
+			</a></div>
+		{{image_link_end}}
+		{{text_link_start}}
+			<div class="previous"><a href="{{link}}">previous</a></div>
+		{{text_link_end}}
+	{{paging_previous_end}}
+	{{paging_next_start}}
+		{{image_link_start}}
+			<div class="next"><a href="{{link}}">
+				<img class="rollover" src="{{image}}" alt="next" />
+			</a></div>
+		{{image_link_end}}
+		{{text_link_start}}
+			<div class="next"><a href="{{link}}">next</a></div>
+		{{text_link_end}}
+	{{paging_next_end}}
+{{paging_end}}

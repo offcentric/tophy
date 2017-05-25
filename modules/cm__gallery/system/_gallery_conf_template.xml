@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gallery>
+	<navigation>
+		<item>
+			<folder></folder>
+			<title><![CDATA[]]></title>
+		</item>
+	</navigation>
+	<!--
+	ALIASES
+	1. url is the address which corresponds to one of this application's aliases.
+	2. gallery_webpath is a folder path - relative to the web server's document root - pointing to the folder in which this file resides.
+	3. media_path is a folder path pointing to the root folder of the gallery, where all JPG images are found. This path can be absolute (by adding a leading '/')  or else it will be considered relative to the gallery_webpath
+	4. media_url is an absolute web path (or URL) pointing to the root of the gallery, where all JPG images are found.
+	-->
+	<aliases>
+		<alias>
+			<domain></domain>
+			<gallery_webpath></gallery_webpath>
+			<media_path></media_path>
+			<media_url></media_url>
+		</alias>
+	</aliases>
+
+	<!-- GENERAL SITE INFO -->
+	<gallery_name></gallery_name>
+	<admin_email></admin_email>
+	<email_subject></email_subject>
+
+	<!-- GALLERY CUSTOMIZATION -->
+	<logo_name>logo.gif</logo_name>
+	<logo_align>center</logo_align>
+	<theme>default</theme>
+	<page_layout>full</page_layout>
+	<custom_styles>
+	</custom_styles>
+	<!--
+	possible values for <startpage>:
+	"splash" shows a slideshow of photos which are placed in the /images/splash folder
+	"list" shows a list of all "books" of photos in the gallery
+	"book:{bookname}" shows a single book, as specified by {bookname}
+	-->
+	<startpage>splash</startpage>
+	<resize_splash_images></resize_splash_images>
+	<splash_image_resize_w/>
+	<splash_image_resize_h/>
+	<slideshow_interval>5</slideshow_interval>
+	<!-- 
+	Possible values for <gallery_display>:
+	"strip" displays a horizontally scrolling series of images at full size, good for fashion photography portfolios, or storylines
+	"thumbnails" shows a page of thumbnails, displays full sized images on click, using Thickbox
+	-->
+	<gallery_display>thumbnails</gallery_display>
+	<gallery_thumb_w>120</gallery_thumb_w>
+	<gallery_thumb_h>120</gallery_thumb_h>
+	<!--
+	Display type-specific setting for "thumbnails":
+	<gallery_thumb_ratio>:	"fixed" will display thumbnails in the exact dimensions specified under gallery_thumb_w and gallery_thumb_h
+							"constrain_h" will display thumbnails in their original ratios, with a constant height (width setting is ignored)
+							"constrain_w" will display thumbnails in their original ratios, with a constant width (height setting is ignored)
+							"constrain_both" will display thumbnails in their original ratios, making sure neither dimension exceeds the dimensions specified
+	-->
+	<gallery_thumb_ratio>fixed</gallery_thumb_ratio>
+	<gallery_strip_h>400</gallery_strip_h>
+  	<enable_thickbox>1</enable_thickbox>
+  	<enable_slideshow>1</enable_slideshow>
+	<enable_control_panel>1</enable_control_panel>
+	<enable_exif_display>1</enable_exif_display>
+  	<enable_all_books_list>1</enable_all_books_list>
+	<gallery_navigation_style>images</gallery_navigation_style>
+	<navigation_image_format>gif</navigation_image_format>
+
+	<!-- CONTENT & METADATA -->
+	<footercontent><![CDATA[<a href="{gallery_webpath}about">About</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;]]></footercontent>
+
+	<metadata>
+		<meta_author><![CDATA[]]></meta_author>
+		<meta_keywords><![CDATA[]]></meta_keywords>
+		<meta_description><![CDATA[]]></meta_description>
+		<meta_company_name><![CDATA[]]></meta_company_name>
+		<meta_classification><![CDATA[]]></meta_classification>
+	</metadata>
+
+	<!-- OTHER -->
+	<!-- the maximum allowable age in days for your resized images (thumbs and strip-sized photos) IT IS NOT RECOMMENDED TO CHANGE THIS!! -->
+	<gallery_resize_maxage>7</gallery_resize_maxage>
+</gallery>
