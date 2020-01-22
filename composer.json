@@ -1,5 +1,5 @@
 {
-  "name": "indorock/tophy",
+  "name": "offcentric/tophy",
   "description": "Tophy - Extensible PhoTOgraPHY platform for sharing image galleries and a journal.",
   "version": "1.0.0",
   "type": "project",
@@ -11,7 +11,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/indorock/tophy"
+      "url": "https://github.com/offcentric/tophy"
     }
   ],
   "require": {
