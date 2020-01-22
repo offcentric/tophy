@@ -24,11 +24,11 @@
   "extra": {
     "web-root-dir": "./web"
   },
-  "authors":[
+  "authors": [
     {
-      "name":"Mark Mulder",
-      "email":"mark@markmulder.net",
-      "homepage":"https://unikrn.com"
+      "name": "Mark Mulder",
+      "email": "mark@markmulder.net",
+      "homepage": "https://unikrn.com"
     }
   ],
   "provide": {
@@ -36,7 +36,8 @@
   "prefer-stable": true,
   "minimum-stability": "dev",
   "autoload": {
-    "classmap": [
+    "files": [
+      "bootstrap.php"
     ]
   }
 }
