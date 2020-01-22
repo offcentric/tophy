@@ -11,7 +11,7 @@ if(@$_SESSION['pagetype']==""){
 <html>
 
 <?php include "head.php"; ?>
-<body<?php if($_SESSION['pagename'] != ""){ echo " id=\"" . $_SESSION['pagename'] . "\"";} ?> class="<?php echo $_SESSION['pagetype'];?><?php if(@$_SESSION['cm__gallery']['display'] != "") echo " display_" . $_SESSION['cm__gallery']['display'];?>">
+<body<?php if(isset($_SESSION['pagename']) && $_SESSION['pagename'] != ""){ echo " id=\"" . $_SESSION['pagename'] . "\"";} ?> class="<?php echo $_SESSION['pagetype'];?><?php if(@$_SESSION['cm__gallery']['display'] != "") echo " display_" . $_SESSION['cm__gallery']['display'];?>">
 	<div id="outercontainer">
 		<div class="container" id="container">
 		<?php

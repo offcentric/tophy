@@ -625,4 +625,7 @@ function get_mime_type($filename) {
 		return("application/xml"); }
 	return("binary/octet-stream");
 }
-?>
+
+function hash_password($plaintext){
+    return hash('sha256',trim($plaintext) . 'some5alt1inyourW0und!');
+}

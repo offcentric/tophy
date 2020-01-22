@@ -536,12 +536,12 @@ var Menu = {
 	},
 	
 	init : function(){
+        Menu.navlist = $("ul#nav");
+        if(!Menu.navlist.hasClass("dropdown"))
+            return;
 		Menu.displaystate = "closed";
-		Menu.navlist = $("ul#nav");
 		Menu.header = $("div#nav_container h3.nav_header a");
-		if(Menu.navlist.hasClass("dropdown")){
-			Menu.navlist.hide();
-		}
+        Menu.navlist.hide();
 		$("body").bind("click", function(){Menu.toggle('close');});
 		Menu.header.bind("click", function(){Menu.toggle();return false;});
 	}

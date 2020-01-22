@@ -1,0 +1,42 @@
+{
+  "name": "indorock/tophy",
+  "description": "Tophy - Extensible PhoTOgraPHY platform for sharing image galleries and a journal.",
+  "version": "1.0.0",
+  "type": "project",
+  "homepage": "https://mulderphoto.com",
+  "license": "proprietary",
+  "support": {
+    "email": "mark@offcentric.com"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/indorock/tophy"
+    }
+  ],
+  "require": {
+    "php": ">=7.3",
+  },
+  "require-dev": {
+  },
+  "config": {
+  },
+  "extra": {
+    "web-root-dir": "./web"
+  },
+  "authors":[
+    {
+      "name":"Mark Mulder",
+      "email":"mark@markmulder.net",
+      "homepage":"https://unikrn.com"
+    }
+  ],
+  "provide": {
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "autoload": {
+    "classmap": [
+    ]
+  }
+}

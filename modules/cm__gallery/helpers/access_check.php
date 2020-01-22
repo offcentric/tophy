@@ -8,7 +8,7 @@ function check_access($d){
 		if(sizeof(glob($d . $pattern_xml)) == 1){
 			$files = glob($d . $pattern_xml);
 	
-			if($_SESSION['cm__gallery']['folder_access'][$files[0]] == ''){
+			if(!isset($_SESSION['cm__gallery']['folder_access'][$files[0]]) || $_SESSION['cm__gallery']['folder_access'][$files[0]] == ''){
 				$access_xmlfile = new XmlFile(realpath($files[0]));
 				$access_root_node = $access_xmlfile->xpath->query("/access")->item(0);
 	//			if($access_root_node->length > 0){
@@ -32,4 +32,3 @@ function check_access($d){
 		}
 	}
 }
-?>

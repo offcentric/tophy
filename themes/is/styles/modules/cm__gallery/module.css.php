@@ -222,6 +222,29 @@ div.intro{
 	color:#bbb;
 }
 
+/* BOOK / PAGE LOGIN FORM */
+form#book_login{
+    width:400px;
+    margin:20px auto;
+}
+
+form#book_login div.formrow{
+    padding:10px 0;
+    text-align:center;
+}
+
+form#book_login div.formrow label{
+    display:block;
+    margin-bottom:10px;
+}
+
+div.login_error{
+    width:400px;
+    text-align:center;
+    margin:20px auto;
+    color:#cc0000;
+    font-weight:bold;
+}
 
 
 /* THICKBOX */

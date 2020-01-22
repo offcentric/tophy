@@ -89,7 +89,7 @@ if(BrowserDetect.supported()){
  * Heavily customized by Mark Mulder for advanced image popover support, fixed for use with jQuery 1.3+
 */
 		  
-var tb_pathToImage = "<?php echo $_SESSION['webpath'] ?>images/thickbox/loading_animation.gif?m=<?php echo @$_SESSION['module'] ?>";
+var tb_pathToImage = "<?php echo $_SESSION['webpath'] ?>images/thickbox/loading_animation.png?m=<?php echo @$_SESSION['module'] ?>";
 var TB_IsImage = false;
 var TB_die = false;
 

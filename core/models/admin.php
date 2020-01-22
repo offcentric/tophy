@@ -69,4 +69,3 @@ $gallery_display = getElementValue($gallery_node, "gallery_display", 0, "");
 $gallery_thumb_ratio = getElementValue($gallery_node, "gallery_thumb_ratio", 0, "");
 $gallery_navigation_style = getElementValue($gallery_node, "gallery_navigation_style", 0, "");
 $navigation_image_format = getElementValue($gallery_node, "navigation_image_format", 0, "");
-?>

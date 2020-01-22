@@ -56,7 +56,7 @@ function resizeimg($name,$filename,$new_w,$new_h,$ratio){
 		if (preg_match("/png/i",$fileext)){
 			imagepng($dst_img,$filename); 
 		} else {
-			imagejpeg($dst_img,$filename,90); 
+		    imagejpeg($dst_img,$filename,90);
 		}
 		imagedestroy($dst_img); 
 		imagedestroy($src_img); 

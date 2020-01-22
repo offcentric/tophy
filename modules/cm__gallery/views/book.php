@@ -132,4 +132,4 @@ if($_SESSION['cm__gallery']['book'] != ""){
 		include COREBASEPATH . "/views/partial/end.php";
 	}
 }
-?>
+

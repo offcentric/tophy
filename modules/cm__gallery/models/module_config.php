@@ -53,28 +53,30 @@ function load_cm__gallery_config(){
 
 	$gallery_navigation_node = $GLOBALS['config_gallery']->xpath->query("navigation", $config_root_node)->item(0);
 
-	$_SESSION['cm__gallery']['menu'] = array();
-	$_SESSION['cm__gallery']['menu']['multilevel'] =  getAttributeValue($config_root_node, "navigation", 0, "multilevel", "false");
-	$_SESSION['cm__gallery']['menu']['dropdown'] =  getAttributeValue($config_root_node, "navigation", 0, "dropdown", "false");
-	$_SESSION['cm__gallery']['menu']['header'] = getElementValue($gallery_navigation_node, "header", 0, "");
+	if($config_root_node->getElementsByTagName("navigation") && $config_root_node->getElementsByTagName("navigation")->length){
+        $_SESSION['cm__gallery']['menu'] = array();
+        $_SESSION['cm__gallery']['menu']['multilevel'] = getAttributeValue($config_root_node, "navigation", 0, "multilevel", "false");
+        $_SESSION['cm__gallery']['menu']['dropdown'] = getAttributeValue($config_root_node, "navigation", 0, "dropdown", "false");
+        $_SESSION['cm__gallery']['menu']['header'] = getElementValue($gallery_navigation_node, "header", 0, "");
 
-	$xpresult_menu = $GLOBALS['config_gallery']->xpath->query("/config/navigation/item", $config_root_node);
-	for($x=0;$x<$xpresult_menu->length;$x++){
-		$itemnode = $xpresult_menu->item($x);
-		$_SESSION['cm__gallery']['menu']['items'][$x]['linked'] = getAttributeValue($itemnode, "title", 0, "linked", "true");		
-		$_SESSION['cm__gallery']['menu']['items'][$x]['title'] = getElementValue($itemnode, "title", 0, "");
-		$_SESSION['cm__gallery']['menu']['items'][$x]['folder'] = getElementValue($itemnode, "folder", 0, "");
-		$_SESSION['cm__gallery']['menu']['items'][$x]['coverimage'] = getElementValue($itemnode, "coverimage", 0, "");
-		$_SESSION['cm__gallery']['menu']['items'][$x]['submenu_collapsible'] = getAttributeValue($itemnode, "subitems", 0, "collapsible", "false");
-		$_SESSION['cm__gallery']['menu']['items'][$x]['subitem'] = array();
-		$xpresult_subitems = $GLOBALS['config_gallery']->xpath->query("subitems/item", $itemnode);
-		for($y=0;$y<$xpresult_subitems->length;$y++){
-			$subitemnode = $xpresult_subitems->item($y);
-			$_SESSION['cm__gallery']['menu']['items'][$x]['subitem'][$y]['title'] = getElementValue($subitemnode, "title", 0, "");
-			$_SESSION['cm__gallery']['menu']['items'][$x]['subitem'][$y]['folder'] = getElementValue($subitemnode, "folder", 0, "");
-			$_SESSION['cm__gallery']['menu']['items'][$x]['subitem'][$y]['coverimage'] = getElementValue($subitemnode, "coverimage", 0, "");
-		}
-	}
+        $xpresult_menu = $GLOBALS['config_gallery']->xpath->query("/config/navigation/item", $config_root_node);
+        for ($x = 0; $x < $xpresult_menu->length; $x++) {
+            $itemnode = $xpresult_menu->item($x);
+            $_SESSION['cm__gallery']['menu']['items'][$x]['linked'] = getAttributeValue($itemnode, "title", 0, "linked", "true");
+            $_SESSION['cm__gallery']['menu']['items'][$x]['title'] = getElementValue($itemnode, "title", 0, "");
+            $_SESSION['cm__gallery']['menu']['items'][$x]['folder'] = getElementValue($itemnode, "folder", 0, "");
+            $_SESSION['cm__gallery']['menu']['items'][$x]['coverimage'] = getElementValue($itemnode, "coverimage", 0, "");
+            $_SESSION['cm__gallery']['menu']['items'][$x]['submenu_collapsible'] = getAttributeValue($itemnode, "subitems", 0, "collapsible", "false");
+            $_SESSION['cm__gallery']['menu']['items'][$x]['subitem'] = array();
+            $xpresult_subitems = $GLOBALS['config_gallery']->xpath->query("subitems/item", $itemnode);
+            for ($y = 0; $y < $xpresult_subitems->length; $y++) {
+                $subitemnode = $xpresult_subitems->item($y);
+                $_SESSION['cm__gallery']['menu']['items'][$x]['subitem'][$y]['title'] = getElementValue($subitemnode, "title", 0, "");
+                $_SESSION['cm__gallery']['menu']['items'][$x]['subitem'][$y]['folder'] = getElementValue($subitemnode, "folder", 0, "");
+                $_SESSION['cm__gallery']['menu']['items'][$x]['subitem'][$y]['coverimage'] = getElementValue($subitemnode, "coverimage", 0, "");
+            }
+        }
+    }
 
 	$_SESSION['cm__gallery']['config_xml_file_size'] = filesize(realpath($_SESSION['cm__gallery']['config_xml_file']));
 	$_SESSION['cm__gallery']['config_xml_file_time'] = filectime(realpath($_SESSION['cm__gallery']['config_xml_file']));
