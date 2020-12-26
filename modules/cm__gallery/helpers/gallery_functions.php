@@ -154,7 +154,7 @@ function get_gallery_html($page, $html_template)
                 if ($_SESSION['cm__gallery']['display'] == "thumbnails") {
                     preg_match("~(.*)\{\{thickbox_on_start\}\}(.+)\{\{thickbox_on_end\}\}(.*)\{\{thickbox_off_start\}\}(.+)\{\{thickbox_off_end\}\}(.*)\{\{exif_display_start\}\}(.+)\{\{exif_display_end\}\}(.*)~s", $html_template, $item_html_components);
                     $suffix = "_" . $_SESSION['cm__gallery']['thumb_ratio'];
-                    $resizename = substr($filename, 0, stripos($filename, ".jpg")) . $suffix . ".jpg";
+                    $resizename = str_replace(' ', '_',substr($filename, 0, stripos($filename, ".jpg")) . $suffix . ".jpg");
                     $pagehtml .= $item_html_components[1];
                     if (file_exists($resize_path . $resizename)) {
                         $timediff = time() - (filectime($resize_path . $resizename));
@@ -177,7 +177,7 @@ function get_gallery_html($page, $html_template)
                     $pagehtml .= $item_html_components[7];
                 } else {
                     preg_match("~(.*)\{\{item_start\}\}(.+)\{\{item_end\}\}(.*)~s", $html_template, $item_html_components);
-                    $resizename = substr($filename, 0, strpos($filename, ".jpg")) . $suffix . ".jpg";
+                    $resizename = str_replace(' ', '_', substr($filename, 0, strpos($filename, ".jpg")) . $suffix . ".jpg");
                     if (file_exists($resize_path . $resizename)) {
                         $timediff = time() - (filectime($resize_path . $resizename));
                         $daysdiff = $timediff / 3600 / 24;
