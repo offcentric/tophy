@@ -114,7 +114,7 @@ function load_global_config(){
 			$_SESSION['media_path'] = $_SESSION['filepath'] . $_SESSION['media_path'];
 		}
 
-		if(substr($_SESSION['media_url'], 0, 1) != "/" && substr($_SESSION['media_url'], 0, 7) != "http://"){
+		if(substr($_SESSION['media_url'], 0, 1) != "/" && preg_match("/https?:\/\//", $_SESSION['media_url'], $matches) === false){
 			$_SESSION['media_webpath'] = $_SESSION['webpath'] . $_SESSION['media_url'];
 		}else{
 			$_SESSION['media_webpath'] = $_SESSION['media_url'];

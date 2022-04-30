@@ -11,7 +11,7 @@ $page = $_GET["p"];
 
 $images_path = $_SESSION['media_path'] . $book . "/";
 $images_webpath = $_SESSION['media_webpath'] . $book . "/";
-if(strpos($images_webpath, "http://") !== 0){
+if(preg_match("/https?:\/\//", $images_webpath, $matches) === false){
 	$images_webpath = "http://" . $images_webpath;
 }
 if($page != ""){

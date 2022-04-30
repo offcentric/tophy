@@ -112,7 +112,7 @@ function get_gallery_html($page, $html_template)
             if (!is_dir($file)) {
                 $item_content['photo_page_link'] = $_SESSION['webpath'] . $_SESSION['cm__gallery']['webpath'] . $book . ($page == null ? "" : "/" . $page) . "/photo:" . $filename;
                 $item_content['image_link'] = $images_webpath . $filename;
-                if (strpos($item_content['image_link'], "http://") !== 0) $item_content['image_link'] = "http://" . $item_content['image_link'];
+                if (preg_match("/https?:\/\//", $item_content['image_link'], $matches) === false) $item_content['image_link'] = "http://" . $item_content['image_link'];
 
                 if ($_SESSION['cm__gallery']['enable_exif_display']) {
                     $exif = get_EXIF_JPEG($file);
