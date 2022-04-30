@@ -15,12 +15,10 @@ function saveXMLFile($xmlfile, $dom){
         if(!$dom->save($xmlfile)){
             print "Cannot write to file " . $xmlfile;
             return false;
-            exit;
         }
     } else {
         print "The file " . $xmlfile . " is not writable";
         return false;
-        exit;
     }
     return true;
 }
@@ -44,6 +42,7 @@ function getElementValue($parentelement, $tagname, $index, $defaultval){
         }
     }else{
         echo "getElementValue() ERROR: tagname \"$tagname\" does not have a valid parentelement.<br />";
+        return null;
     }
 }
 
@@ -59,8 +58,10 @@ function getAttributeValue($parentelement, $tagname, $index, $attname, $defaultv
                 return $resultList->item($index)->getAttribute($attname);
             }
         }
+        return null;
     }else{
         echo "getAttributeValue() ERROR:tagname \"$tagname\" does not have a valid parentelement.<br/>";
+        return null;
     }
 }
 
@@ -78,10 +79,12 @@ function setElementValue($parentelement, $tagname, $index, $newval,$create_if_mi
                 $node = $parentelement->appendChild($node);
             }else{
                 echo "setElementValue() ERROR: tagname \"$tagname\" not found with index $index.<br />";
+                return null;
             }
         }
     }else{
         echo "setElementValue() ERROR:tagname \"$tagname\" does not have a valid parentelement.<br />";
+        return null;
     }
 }
 
@@ -94,9 +97,11 @@ function setAttributeValue($parentelement, $tagname, $index, $attname, $newval){
             $resultList->item($index)->setAttribute($attname,$newval);
         }else{
             echo "setAttributeValue() ERROR: tagname \"$tagname\" not found with index $index.<br />";
+            return null;
         }
     }else{
         echo "setAttributeValue() ERROR:tagname \"$tagname\" does not have a valid parentelement.<br />";
+        return null;
     }
 }
 

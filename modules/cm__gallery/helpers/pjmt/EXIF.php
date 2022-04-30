@@ -1564,7 +1564,7 @@ function read_IFD_universal( $filehnd, $Tiff_offset, $Byte_Align, $Tag_Definitio
 
                                 // Minolta Thumbnails are missing their first 0xFF for some reason,
                                 // which is replaced with some weird character, so fix this
-                                $OutputArray[0x0088]['Data']{0} = "\xFF";
+                                $OutputArray[0x0088]['Data'][0] = "\xFF";
                         }
                         else
                         {
@@ -1714,7 +1714,7 @@ function get_Tag_Text_Value( $Tag, $Tag_Definitions_Name )
                 else if ( is_string( $Tag['Data'] ) )
                 {
                         // If data is a string, use the first character
-                        $first_val = ord($Tag['Data']{0});
+                        $first_val = ord($Tag['Data'][0]);
                 }
                 else
                 {
@@ -1840,7 +1840,7 @@ function get_Special_Tag_Text_Value( $Tag, $Tag_Definitions_Name )
                                         // Construct second part of text string via
                                         // lookup using numerical value
 
-                                        $value = ord( $Tag['Data']{$Num} );
+                                        $value = ord( $Tag['Data'][$Num] );
                                         switch( $value )
                                         {
                                                 case 0:
@@ -1910,7 +1910,7 @@ function get_Special_Tag_Text_Value( $Tag, $Tag_Definitions_Name )
                                                 // Append text from a lookup table according to
                                                 // the value read for this element
 
-                                                switch ( ord($Tag['Data']{($n_max*($m-1)+$n+3)}) )
+                                                switch ( ord($Tag['Data'][($n_max*($m-1)+$n+3)]) )
                                                 {
                                                         case 0:
                                                                 $output_str .= "RED     ";

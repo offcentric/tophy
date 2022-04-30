@@ -11,6 +11,7 @@
 
 $_SESSION['pagetype'] = "splash";
 
+global $extra_js;
 $extra_js = "if(BrowserDetect.supported()) insertJSFile('" . $_SESSION['webpath'] . "scripts/jquery.innerfade.js?m=" . $_SESSION['cm__gallery']['module_name'] . "');\n";
 
 $count = 0;

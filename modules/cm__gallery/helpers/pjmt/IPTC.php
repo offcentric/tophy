@@ -1,5 +1,6 @@
 <?php
 
+
 /******************************************************************************
 *
 * Filename:     IPTC.php
@@ -341,27 +342,27 @@ function Interpret_IPTC_to_HTML( $IPTC_info )
 
                                         case "2:130":   // Application Record:Image Type
                                                 // Lookup Number of Components
-                                                if ( $IPTC_Record['RecData']{0} == "0" )
+                                                if ( $IPTC_Record['RecData'][0] == "0" )
                                                 {
                                                         $output_str .= "<tr class=\"IPTC_Table_Row\"><td class=\"IPTC_Caption_Cell\">$Record_Name</td><td class=\"IPTC_Value_Cell\">No Objectdata";
                                                 }
-                                                elseif ( $IPTC_Record['RecData']{0} == "9" )
+                                                elseif ( $IPTC_Record['RecData'][0] == "9" )
                                                 {
                                                         $output_str .= "<tr class=\"IPTC_Table_Row\"><td class=\"IPTC_Caption_Cell\">$Record_Name</td><td class=\"IPTC_Value_Cell\">Supplemental objects related to other objectdata";
                                                 }
                                                 else
                                                 {
-                                                        $output_str .= "<tr class=\"IPTC_Table_Row\"><td class=\"IPTC_Caption_Cell\">$Record_Name</td><td class=\"IPTC_Value_Cell\">Number of Colour Components : " . nl2br( HTML_UTF8_Escape( $IPTC_Record['RecData']{0} ) );
+                                                        $output_str .= "<tr class=\"IPTC_Table_Row\"><td class=\"IPTC_Caption_Cell\">$Record_Name</td><td class=\"IPTC_Value_Cell\">Number of Colour Components : " . nl2br( HTML_UTF8_Escape( $IPTC_Record['RecData'][0]) );
                                                 }
 
                                                 // Lookup current objectdata colour
-                                                if ( $GLOBALS['ImageType_Names'][ $IPTC_Record['RecData']{1} ] == "" )
+                                                if ( $GLOBALS['ImageType_Names'][ $IPTC_Record['RecData'][1]] == "" )
                                                 {
-                                                        $output_str .= ", Unknown : " . nl2br( HTML_UTF8_Escape( $IPTC_Record['RecData']{1} ) );
+                                                        $output_str .= ", Unknown : " . nl2br( HTML_UTF8_Escape( $IPTC_Record['RecData'][1]) );
                                                 }
                                                 else
                                                 {
-                                                        $output_str .= ", " . nl2br( HTML_UTF8_Escape( $GLOBALS['ImageType_Names'][ $IPTC_Record['RecData']{1} ] ) );
+                                                        $output_str .= ", " . nl2br( HTML_UTF8_Escape( $GLOBALS['ImageType_Names'][ $IPTC_Record['RecData'][1]] ) );
                                                 }
                                                 $output_str .= "</td></tr>\n";
                                                 break;

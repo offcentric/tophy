@@ -130,12 +130,16 @@ function get_gallery_html($page, $html_template)
                         $exif_date = substr($exif_date, 8, 2) . "/" . substr($exif_date, 5, 2) . "/" . substr($exif_date, 0, 4);
                         $item_content['exif_details'] = add_info_to_panel("Date", $exif_date);
                         $item_content['exif_details'] .= add_info_to_panel("Camera", $exif_model);
-                        if (substr($exif_shutterspeed, strpos($exif_shutterspeed, "/") + 1, 10) != 0) {
-                            $calculated_shutter_speed = substr($exif_shutterspeed, 0, strpos($exif_shutterspeed, "/")) / (substr($exif_shutterspeed, strpos($exif_shutterspeed, "/") + 1, 10));
-                            if ($calculated_shutter_speed > 1) {
-                                $exif_shutterspeed = $calculated_shutter_speed;
-                            } else if (substr($exif_shutterspeed, 0, strpos($exif_shutterspeed, "/")) == "10") {
-                                $exif_shutterspeed = (substr($exif_shutterspeed, 0, strpos($exif_shutterspeed, "/")) / 10) . "/" . (substr($exif_shutterspeed, strpos($exif_shutterspeed, "/") + 1, 10) / 10);
+                        if ($exif_shutterspeed){
+                            if(strpos($exif_shutterspeed, "/") !== false){
+                                if(substr($exif_shutterspeed, strpos($exif_shutterspeed, "/") + 1, 10) != 0) {
+                                    $calculated_shutter_speed = (int)substr($exif_shutterspeed, 0, strpos($exif_shutterspeed, "/")) / (int)substr($exif_shutterspeed, strpos($exif_shutterspeed, "/") + 1, 10);
+                                    if ($calculated_shutter_speed > 1) {
+                                        $exif_shutterspeed = $calculated_shutter_speed;
+                                    } else if (substr($exif_shutterspeed, 0, strpos($exif_shutterspeed, "/")) == "10") {
+                                        $exif_shutterspeed = ((int)substr($exif_shutterspeed, 0, strpos($exif_shutterspeed, "/")) / 10) . "/" . ((int)substr($exif_shutterspeed, strpos($exif_shutterspeed, "/") + 1, 10) / 10);
+                                    }
+                                }
                             }
                         }
                         if ($exif_shutterspeed != "" && $exif_aperture != "") $item_content['exif_details'] .= add_info_to_panel("Exposure", $exif_shutterspeed . "s at f/" . $exif_aperture);
@@ -216,35 +220,6 @@ function clean_thumbs($resize_path)
     }
 }
 
-function output_iptc_data($image_path, $tag_name)
-{
-    $size = GetImageSize("$image_path", $info);
-    $iptc = iptcparse($info["APP13"]);
-    if (isset($info["APP13"])) {
-        $iptc = iptcparse($info["APP13"]);
-        if (is_array($iptc)) {
-            $caption = $iptc["2#120"][0];
-            $graphic_name = $iptc["2#005"][0];
-            $urgency = $iptc["2#010"][0];
-            $category = $iptc["2#015"][0];
-            // note that sometimes supp_categories contans multiple entries
-            $supp_categories = $iptc["2#020"][0];
-            $spec_instr = $iptc["2#040"][0];
-            $creation_date = $iptc["2#055"][0];
-            $photog = $iptc["2#080"][0];
-            $credit_byline_title = $iptc["2#085"][0];
-            $city = $iptc["2#090"][0];
-            $state = $iptc["2#095"][0];
-            $country = $iptc["2#101"][0];
-            $otr = $iptc["2#103"][0];
-            $headline = $iptc["2#105"][0];
-            $source = $iptc["2#110"][0];
-            $photo_source = $iptc["2#115"][0];
-        }
-
-    }
-    return $$tag_name;
-}
 
 function ee_extract_exif_from_pscs_xmp($filename, $printout = 0)
 {

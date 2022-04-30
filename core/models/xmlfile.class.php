@@ -1,10 +1,11 @@
 <?php
+
 class XmlFile{
 	var $xmldom;
 	var $xmlfile;
 	var $xpath;
 	
-	function XmlFile($xmlfile){
+	public function __construct($xmlfile){
 		$this->xmldom = new DOMDocument();
 		$this->xmlfile = $xmlfile;
 		if(file_exists($this->xmlfile)){
@@ -21,4 +22,3 @@ class XmlFile{
 		}
 	}
 }
-?>

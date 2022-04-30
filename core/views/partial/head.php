@@ -1,3 +1,6 @@
+<?php
+global $extra_js;
+?>
 <head>
 	<title><?php echo $_SESSION['website_name'] . " " . $_SESSION['website_subtitle'] ?></title>
 	<meta http-equiv="Content-Language" content="en-us" />
@@ -26,10 +29,10 @@
 	<script type="text/javascript" src="<?php echo $_SESSION['webpath'] ?>scripts/json.js"></script>
 	<script type="text/javascript" src="<?php echo $_SESSION['webpath'] ?>scripts/global.js?t=<?php echo $_SESSION['theme'] ?>"></script>
 <?php foreach($_SESSION['page_modules'] as $pagemodule){ ?>
-	<script type="text/javascript" src="<?php echo $_SESSION['webpath'] ?>scripts/module.js?t=<?php echo $_SESSION['theme'] ?>&m=<?php echo $pagemodule ?>&pagetype=<?php echo $_SESSION['pagetype'];?>&display=<?php echo  @$_SESSION[$pagemodule][display];?>"></script>
+	<script type="text/javascript" src="<?php echo $_SESSION['webpath'] ?>scripts/module.js?t=<?php echo $_SESSION['theme'] ?>&m=<?php echo $pagemodule ?>&pagetype=<?php echo $_SESSION['pagetype'];?>&display=<?php echo  @$_SESSION[$pagemodule]['display'];?>"></script>
 <?php } ?>
 	<script type="text/javascript" src="<?php echo $_SESSION['webpath'] ?>scripts/unobtrude.js"></script>
-<?php if(@$extra_js != ""){ ?>
+<?php if($extra_js != ""){ ?>
 	<script type="text/javascript">
 	<?php echo $extra_js; ?>
 	</script>
