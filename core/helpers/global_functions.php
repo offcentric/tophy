@@ -38,9 +38,14 @@ function get_filepath($matches, $filetype, $request_theme, $request_module){
 				$file = $path;
 				break;
 			}else{
-				if(($filetype == $GLOBALS['system_pathnames']['scripts'] || $filetype = $GLOBALS['system_pathnames']['styles']) && file_exists($path . ".php")){
-					$file = $path . ".php";
-					break;
+				if(($filetype == $GLOBALS['system_pathnames']['scripts'] || $filetype = $GLOBALS['system_pathnames']['styles'])){
+				    if(file_exists($path . ".php")){
+    					$file = $path . ".php";
+	    				break;
+				    }elseif(file_exists($path)){
+    					$file = $path;
+	    				break;
+				    }
 				}
 			}
 		}

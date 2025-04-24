@@ -78,8 +78,9 @@ body.showcase div.showcase div a{
 /********************************/
 
 /* BOOK PAGE */
-ul.toc{margin:20px auto; width:100%;}
-ul.toc li{margin:10px 20px;font:1.1em Verdana, sans-serif;line-height:20px ! important; float:left;}
+ul.toc{margin:20px auto; width:100%; display:flex; flex-direction:row; justify-content: space-between;flex-wrap: wrap; justify-content: flex-start;
+	align-items: flex-start;}
+ul.toc li{margin:10px 40px;font:1.1em Verdana, sans-serif;line-height:20px ! important; width: 400px; display:block; text-align:left;}
 ul.toc li a span{display:block;}
 ul.toc li span.intro{font-size:0.9em;}
 ul.toc li a{ text-decoration:none ! important;}

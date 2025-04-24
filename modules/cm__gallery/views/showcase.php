@@ -46,7 +46,7 @@ foreach($_SESSION['cm__gallery']['menu']['items'] as $menuitem){
 			$item_content['counter']++;
 			$subitem_folder = "/" . $subitem['folder'];
 			$coverimage = $subitem['coverimage'];
-			$coverimage_path = $_SESSION['media_path'] . $folder . $subitem_folder . "/" . $coverimage;	
+			$coverimage_path = $_SESSION['media_path'] . $folder . $subitem_folder . "/" . $coverimage;
 			$timediff =  time() - (filectime($coverimage_path));
 			$daysdiff = $timediff/3600/24;
 			if(!file_exists($resize_path . "/" . $item_content['counter'] . ".jpg") || $daysdiff > $_SESSION['cm__gallery']['resize_maxage']){

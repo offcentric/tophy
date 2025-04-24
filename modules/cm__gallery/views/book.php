@@ -18,7 +18,7 @@ if($_SESSION['cm__gallery']['display'] == "thumbnails"){
 if($_SESSION['cm__gallery']['book'] != ""){
 	$resize_path_part  = "__" . $_SESSION['cm__gallery']['display'] . "/". $_SESSION['cm__gallery']['book'] . "/";
 	$resize_path = $_SESSION['path_db'] . $resize_path_part;
-	$resize_webpath = $_SESSION['webpath_db'] . $resize_path_part;
+	$resize_webpath = $_SESSION['`webpath_db`'] . $resize_path_part;
 
 	if(!is_dir($_SESSION['path_db'])){ mkdir($_SESSION['path_db']);}
 	if(!is_dir($_SESSION['path_db'] . "__" . $_SESSION['cm__gallery']['display'])){ mkdir($_SESSION['path_db'] . "__" . $_SESSION['cm__gallery']['display']);}

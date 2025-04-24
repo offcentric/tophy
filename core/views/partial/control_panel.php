@@ -1,3 +1,7 @@
+<?php
+    require(COREBASEPATH . 'models/config.class.php');
+?>
+
 <div id="control_panel_container" class="jshidden jspositionabsolute">
 	<div id="control_panel" class="jsfloatleft">
 		<div>
@@ -71,7 +75,7 @@
 ?>			
 					<div class="item_on"><?php echo $theme; ?></div>
 <?php 		}else{ ?>
-					<div><a href="<?php echo $GLOBALS['current_webpath'] ?>?theme=<?php echo $theme ?>"><?php echo $theme; ?></a></div>
+					<div><a href="<?php echo Config->current_webpath ?>?theme=<?php echo $theme ?>"><?php echo $theme; ?></a></div>
 <?php
 			}
 		}

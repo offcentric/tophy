@@ -1,4 +1,6 @@
 <?php //script will time out in 5 minutes (instead of default 30 seconds)
+require(COREBASEPATH . "models/config.class.php");
+
 set_time_limit(300);
 
 $action = $_REQUEST['action'];

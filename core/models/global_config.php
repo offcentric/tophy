@@ -97,16 +97,16 @@ function load_global_config(){
 
 		if($_SESSION['webpath'] != "" && $_SESSION['webpath'] != "/"){
 			if(strpos($_SESSION['webpath'], "/") === 0){
-				$_SESSION['filepath'] = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['webpath'];		
+				$_SESSION['filepath'] = $_SERVER['DOCUMENT_ROOT'] . $_SESSION['webpath'];
 			}else{
 				$_SESSION['filepath'] = $_SERVER['DOCUMENT_ROOT'] . "/" . $_SESSION['webpath'];
 			}
 		}else{
 			$_SESSION['filepath'] = $_SERVER['DOCUMENT_ROOT'];
 		}
-		
+
 		/* add a trailing slash to the webpath and filepath global variables, if it is missing */
-		if(substr($_SESSION['filepath'], strlen($_SESSION['filepath'])-1) != "/") $_SESSION['filepath'] .= "/";		
+		if(substr($_SESSION['filepath'], strlen($_SESSION['filepath'])-1) != "/") $_SESSION['filepath'] .= "/";
 		if(substr($_SESSION['webpath'], strlen($_SESSION['webpath'])-1) != "/") $_SESSION['webpath'] .= "/";
 
 		/* if media_path is a relative path, make it relative to the application's location */
@@ -151,7 +151,7 @@ function load_global_config(){
 	/* THEMES */
 	$themesnode = $GLOBALS['config_global']->xpath->query("/config/themes")->item(0);
 	$xpresult_themes = $GLOBALS['config_global']->xpath->query("/config/themes/theme");
-	
+
 	if(isset($_GET["theme"])){
 		$_SESSION['theme'] = $_GET["theme"];
 	}else{
@@ -162,11 +162,11 @@ function load_global_config(){
 			}
 		}
 	}
-	
+
 	$_SESSION['scripts_path'] = "scripts/themes/" . $_SESSION['theme'] . "/";
 	$_SESSION['styles_path'] = "styles/themes/" . $_SESSION['theme'] . "/";
 	$_SESSION['images_path'] = "images/themes/" . $_SESSION['theme'] . "/";
-	
+
 	/***********************************/
 	/* CUSTOM STYLES */
 	if(count($GLOBALS['config_global']->xpath->query("/config/custom_styles")) > 0){
@@ -195,14 +195,14 @@ function load_global_config(){
 		$_SESSION['container_width'] = "100%";
 	else
 		$_SESSION['container_width'] = $_SESSION['page_layout'] . "px";
-	
+
 
 	/************************************/
 	/* 			GET HOMEPAGE			*/
 	$homepage_items = $GLOBALS['config_global']->xpath->query("/config/homepage/item");
 	$_SESSION['homepage_items'] = array();
 	$x = 0;
-	
+
 	foreach($homepage_items as $item){
 		$_SESSION['homepage_items'][$x]['module'] = getElementValue($item, "module", 0, "");
 		$_SESSION['homepage_items'][$x]['view'] = getElementValue($item, "view", 0, "");
@@ -225,7 +225,7 @@ function load_global_config(){
 	$_SESSION['module_paths'] = array();
 	$_SESSION['module_config_include_files'] = array();
 	$_SESSION['module_content_include_files'] = array();
-	
+
 	foreach($modules as $module){
 		$name = getElementValue($module, "name", 0, "");
 		$enabled = getElementValue($module, "enabled", 0, "0");
@@ -242,8 +242,8 @@ function load_global_config(){
 			$_SESSION[$name]['module_name'] = $name;
 			if($_SESSION[$name]['webpath'] == "/"){
 				if($homepage_module != ""){
-					echo "ERROR! more than one homepage defined! Reverting to first one chosen ($homepage_module).";					
-				}else{		
+					echo "ERROR! more than one homepage defined! Reverting to first one chosen ($homepage_module).";
+				}else{
 					$homepage_module = $name;
 					$_SESSION['homepage_module'] = $homepage_module;
 				}
